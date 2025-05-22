@@ -1,30 +1,43 @@
-# Prisma
-=======
 # ORM Project
 
 ## Overview
-This project demonstrates basic CRUD operations using Prisma ORM with a MySQL database. It includes models for `User` and `Post` with a defined relationship.
+Proyek ini mendemonstrasikan operasi CRUD dasar menggunakan Prisma ORM dengan database MySQL. Ini mencakup model untuk `User` dan `Post` dengan relasi yang telah ditentukan.
 
-## Features
-- **Create**: Add new users and posts to the database.
-- **Read**: Retrieve users and posts, including relational data.
-- **Update**: Modify existing user data.
-- **Delete**: Remove users from the database.
+## Fitur
+- **Create**: Menambahkan pengguna dan posting baru ke database.
+- **Read**: Mengambil pengguna dan posting, termasuk data relasional.
+- **Update**: Memodifikasi data pengguna yang ada.
+- **Delete**: Menghapus pengguna dari database.
+- **Join**: Mengambil data pengguna beserta postingannya menggunakan operasi Join.
+- **Function**: Fungsi `fetchPosts` untuk mengambil semua postingan.
+- **Procedure**: Tidak ada prosedur yang spesifik, tetapi fungsi `executeTransaction` menunjukkan penggunaan transaksi.
+- **Transaction**: Menggunakan `prisma.$transaction` untuk melakukan operasi atomik.
+- **JSON**: Mengubah data pengguna menjadi format JSON dengan `JSON.stringify(user)`.
 
-## Usage
-1. Ensure you have a MySQL database running and update the `DATABASE_URL` in the `.env` file.
-2. Run `npm install` to install dependencies.
-3. Execute `node index.cjs` to run the CRUD operations.
+## Cara Penggunaan
+1. Pastikan Anda memiliki database MySQL yang berjalan dan perbarui `DATABASE_URL` di file `.env`.
+2. Jalankan `npm install` untuk menginstal dependensi.
+3. Eksekusi `node index.cjs` untuk menjalankan operasi CRUD.
 
-## Additional Features
-- **Migration**: Use Prisma Migrate to manage your database schema.
-- **Seeding**: Add initial data to your database using Prisma Seed.
+## Fitur Tambahan
+- **Migrasi**: Gunakan Prisma Migrate untuk mengelola skema database Anda.
+- **Seeding**: Tambahkan data awal ke database Anda menggunakan Prisma Seed.
+- **Relationship**: Relasi antara model `User` dan `Post` sudah diimplementasikan dengan anotasi `@relation`.
+- **Lazy Loading**: Untuk mengoptimalkan query dan hanya mengambil data yang diperlukan, Anda dapat menggunakan opsi `include` dalam query Prisma.
 
-## Prisma Schema
-The `schema.prisma` file defines the data models and their relationships.
+## Skema Prisma
+File `schema.prisma` mendefinisikan model data dan relasinya.
 
-## Error Handling
-Errors during database operations are logged to the console.
+## Penanganan Error
+Kesalahan selama operasi database dicatat ke konsol.
 
 ## Disconnect
-The Prisma client disconnects from the database after operations are complete to prevent open connections.
+Klien Prisma terputus dari database setelah operasi selesai untuk mencegah koneksi terbuka.
+
+## Panduan Pengguna
+- **Instalasi**: Pastikan semua dependensi terinstal dengan benar.
+- **Menjalankan Program**: Gunakan perintah `node index.cjs` untuk menjalankan program.
+- **Fungsi Program**: Program ini memungkinkan Anda untuk melakukan operasi CRUD pada model `User` dan `Post`.
+- **Penggunaan Prisma**: Prisma digunakan untuk mengelola dan mengakses database dengan cara yang efisien dan mudah.
+
+Dengan mengikuti panduan ini, Anda dapat menjalankan program dan memahami fungsinya dengan lebih baik.

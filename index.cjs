@@ -1,33 +1,29 @@
-// index.js
 const { PrismaClient } = require('./generated/prisma')
-
 const prisma = new PrismaClient()
-
-// use `prisma` in your application to read and write data in your DB
 
 async function main() {
   // CREATE (Insert user)
-  // await prisma.user.create({
-  //   data: {
-  //     name: "ado",
-  //     email: "ado@example.com"
-  //   }
-  // });
+  await prisma.user.create({
+    data: {
+      name: "ado",
+      email: "ado@example.com"
+    }
+  });
 
   // READ (Ambil semua user)
   const users = await prisma.user.findMany();
   console.log("Daftar user:", users);
 
   // UPDATE (Ubah nama user)
-  // await prisma.user.update({
-  //   where: { email: "hehe@example.com" },
-  //   data: { name: "Jane Doe" }
-  // });
+  await prisma.user.update({
+    where: { email: "hehe@example.com" },
+    data: { name: "Jane Doe" }
+  });
 
   // DELETE (Hapus user)
-  // await prisma.user.delete({
-  //   where: { email: "john@example.com" }
-  // });
+  await prisma.user.delete({
+    where: { email: "john@example.com" }
+  });
 
   console.log("CRUD selesai dijalankan.");
 }
@@ -95,11 +91,11 @@ async function seed() {
   console.log("Seeder selesai.");
 }
 
-// Panggil fungsi migrasi dan seeder
+// Panggil fungsi sesuai dengan kebutuhan ( jika dipanggil semua ada kemungkinan code akan error karena bertabrakan )
 migrate();
 seed();
 main();
 joinUserPosts();
 executeTransaction();
-// manipulateJSON();
-// fetchPosts();
+manipulateJSON();
+fetchPosts();
